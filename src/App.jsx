@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import React from 'react';
+import './App.css';
+import BookCard from './components/bookcard';
 
 function App() {
   const books = [
@@ -34,7 +36,20 @@ function App() {
     },
   ];
 
-  return <>{/* write code to display all the books using */}</>;
+  const gridStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    gap: '16px',
+    padding: '16px',
+  };
+
+  return (
+    <div style={gridStyle}>
+      {books.map((book) => (
+        <BookCard key={book.id} book={book} />
+      ))}
+    </div>
+  );
 }
 
 export default App;
